@@ -1,10 +1,21 @@
 
+BASHPATH=/Users/earyzhe/dev/bash
+
 function create-page {
-  read -r -p 'Page name: ' weeknum
+  read -r -p 'Page name: ' pagename
+  PAGEDIRECTORY="$(pwd)/$pagename"
+
+  mkdir "$PAGEDIRECTORY"
+  cd "$PAGEDIRECTORY"
+  create-files
 }
 
 function create-files {
-  touch index.html style.css script.js
+  touch style.css script.js;
+  currentpath="$(pwd)";
+  echo "$BASHPATH"
+  echo "$currentpath"
+  cp "$BASHPATH/index.html" index.html
 }
 
 function show-help {
@@ -22,10 +33,10 @@ function show-help {
 
 function git-deploy {
     read -r -p 'Commit message: ' desc
-    git -C /Users/earyzhe/dev/bash add .
-    git -C /Users/earyzhe/dev/bash add -u
-    git -C /Users/earyzhe/dev/bash commit -m "$desc"
-    git -C /Users/earyzhe/dev/bash push origin HEAD:master
+    git -C $BASHPATH add .
+    git -C $BASHPATH add -u
+    git -C $BASHPATH commit -m "$desc"
+    git -C $BASHPATH push origin HEAD:master
 }
 
 if [ $1 = mkpg ]
