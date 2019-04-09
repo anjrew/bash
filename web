@@ -11,11 +11,10 @@ function create-page {
 }
 
 function create-files {
-  touch style.css script.js;
-  currentpath="$(pwd)";
-  echo "$BASHPATH"
-  echo "$currentpath"
-  cp "$BASHPATH/index.html" index.html
+  touch style.css
+  CURRENTPATH="$(pwd)";
+  cp "$BASHPATH/index.html" "$CURRENTPATH/index.html"
+  cp "$BASHPATH/script.js" "$CURRENTPATH/script.js"
 }
 
 function show-help {
@@ -29,6 +28,9 @@ function show-help {
   
   echo  " - deploy";
   echo  " - Adds commits and pushs to the remote origin";
+
+  echo  " - edit";
+  echo  " - opens the web bash file to edit it";
 }
 
 function git-deploy {
@@ -37,6 +39,10 @@ function git-deploy {
     git -C $BASHPATH add -u
     git -C $BASHPATH commit -m "$desc"
     git -C $BASHPATH push origin HEAD:master
+}
+
+function edit-file {
+    code $BASHPATH
 }
 
 if [ $1 = mkpg ]
@@ -51,6 +57,9 @@ then
 elif [ $1 = deploy ]
 then
     git-deploy
+elif [ $1 = edit ]
+then
+    edit-file
 else
     echo "Unknown command"
 fi
