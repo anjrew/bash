@@ -2,19 +2,19 @@
 BASHPATH=/Users/earyzhe/dev/bash
 
 function create-page {
-  read -r -p 'Page name: ' pagename
-  PAGEDIRECTORY="$(pwd)/$pagename"
+    read -r -p 'Page name: ' pagename
+    PAGEDIRECTORY="$(pwd)/$pagename"
 
-  mkdir "$PAGEDIRECTORY"
-  cd "$PAGEDIRECTORY"
-  create-files
+    mkdir "$PAGEDIRECTORY"
+    cd "$PAGEDIRECTORY"
+    create-files
 }
 
 function create-files {
-  touch style.css
-  CURRENTPATH="$(pwd)";
-  cp "$BASHPATH/index.html" "$CURRENTPATH/index.html"
-  cp "$BASHPATH/script.js" "$CURRENTPATH/script.js"
+    CURRENTPATH="$(pwd)";
+    cp "$BASHPATH/styles.css" "$CURRENTPATH/styles.css"
+    cp "$BASHPATH/index.html" "$CURRENTPATH/index.html"
+    cp "$BASHPATH/script.js" "$CURRENTPATH/script.js"
 }
 
 function show-help {
