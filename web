@@ -18,19 +18,20 @@ function create-files {
 }
 
 function show-help {
-  echo  "Functions";
-
-  echo  " - mkpg";
-  echo  " - creates a directory file for a webpage with html,css and js files";
-
-  echo  " - mkfls";
-  echo  " - creates html, css and js files within the current directory";
-  
-  echo  " - deploy";
-  echo  " - Adds commits and pushs to the remote origin";
-
-  echo  " - edit";
-  echo  " - opens the web bash file to edit it";
+    echo "------------------------------------------------------------------------"
+    echo  "Functions";
+    echo "------------------------------------------------------------------------"
+    echo  " - mkpg";
+    echo  "   creates a directory file for a webpage with html,css and js files";
+    echo ""
+    echo  " - mkfls";
+    echo  "   creates html, css and js files within the current directory";
+    echo ""
+    echo  " - deploy";
+    echo  "   Adds commits and pushs to the remote origin";
+    echo ""
+    echo  " - edit";
+    echo  "   opens the web bash file to edit it";
 }
 
 function git-deploy {
@@ -45,21 +46,30 @@ function edit-file {
     code $BASHPATH
 }
 
-if [ $1 = mkpg ]
+function query {
+    echo "Options: mkpg ,mkfls ,help ,deploy ,edit ,n";
+    read -r -p 'Command choice: ' choice
+    web $choice
+}
+
+if [[ $1 = mkpg ]]
 then
     create-page
-elif [ $1 = mkfls ]
+elif [[ $1 = mkfls ]]
 then
     create-files
-elif [ $1 = help ]
+elif [[ $1 = help ]]
 then
     show-help
-elif [ $1 = deploy ]
+elif [[ $1 = deploy ]]
 then
     git-deploy
-elif [ $1 = edit ]
+elif [[ $1 = edit ]]
 then
     edit-file
+elif [[ $1 = n ]]
+then 
+    echo "Left without command"
 else
-    echo "Unknown command"
+    query
 fi
