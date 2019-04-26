@@ -2,12 +2,21 @@
 BASHPATH=/Users/earyzhe/dev/bash
 
 function create-page {
+
+    read -r -p 'HandleBars ? y/n : ' handleBars
+
     read -r -p 'Page name: ' pagename
     PAGEDIRECTORY="$(pwd)/$pagename"
 
     mkdir "$PAGEDIRECTORY"
     cd "$PAGEDIRECTORY"
-    create-files
+
+    if [[ handleBars = y ]]
+    then 
+        create-handlebars-page
+    else
+        create-files
+    fi
 }
 
 function create-files {
@@ -15,6 +24,13 @@ function create-files {
     cp "$BASHPATH/styles.css" "$CURRENTPATH/styles.css"
     cp "$BASHPATH/index.html" "$CURRENTPATH/index.html"
     cp "$BASHPATH/script.js" "$CURRENTPATH/script.js"
+}
+
+function create-handlebars-page {
+    CURRENTPATH="$(pwd)";
+    cp "$BASHPATH/styles.css" "$CURRENTPATH/styles.css"
+    cp "$BASHPATH/index-handlebars.html" "$CURRENTPATH/index.html"
+    cp "$BASHPATH/script-handlebars.js" "$CURRENTPATH/script.js"
 }
 
 function show-help {
