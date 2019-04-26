@@ -3,7 +3,7 @@ BASHPATH=/Users/earyzhe/dev/bash
 
 function create-page {
 
-    read -r -p 'HandleBars ? y/n : ' handleBars
+    read -r -p 'HandleBars ? y/n :' handleBars
 
     read -r -p 'Page name: ' pagename
     PAGEDIRECTORY="$(pwd)/$pagename"
@@ -11,7 +11,7 @@ function create-page {
     mkdir "$PAGEDIRECTORY"
     cd "$PAGEDIRECTORY"
 
-    if [[ handleBars = y ]]
+    if [[ $handleBars = "y" ]]
     then 
         create-handlebars-page
     else
