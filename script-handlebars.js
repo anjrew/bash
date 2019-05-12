@@ -8,6 +8,10 @@
         Handlebars.templates[script.id] = Handlebars.compile(script.innerHTML);
     });
 
+    //////////////////////////////////////////////////////////
+    //                  DO NOT TOUCH ABOVE                  //
+    //////////////////////////////////////////////////////////
+
     // e.g
     // document.getElementById('display').innerHTML = Handlebars.templates.cards({items: toRender});
 

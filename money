@@ -1,0 +1,17 @@
+google-chrome --new-tab https://www.xe.com/ https://docs.google.com/spreadsheets/d/1OAv2e9RKbNp-xs5QuEgoE9eVmoD0TDCBbQpQJpA0YOM/edit#gid=776125324 https://app.n26.com/login#/welcome https://www.lloydsbank.com/ https://www.paypal.com/uk/signin https://www.iweb-sharedealing.co.uk/share-dealing-home.asp https://banking.ing-diba.de/app/login?x=fhJhVuIPNgA-acLQ-7Kil-_bvaPe5yqp1JHEJumGQGdEwk8PCHhwPEdz_YEgThiJs https://web.bitpanda.com/ https://www.myetherwallet.com/ https://portal.hydrominer.org/login https://www.switch.natwest.com/SVRWeb/nwb/faces/outage.jsp?param=downtime https://www.zoopla.co.uk/property/6-craglands-grove/chesterfield/s40-4xt/20236647 https://secure.splitwise.com/#/dashboard
+
+open -a "Google Chrome" --new-tab https://www.xe.com/ https://docs.google.com/spreadsheets/d/1OAv2e9RKbNp-xs5QuEgoE9eVmoD0TDCBbQpQJpA0YOM/edit#gid=776125324 https://app.n26.com/login#/welcome https://www.lloydsbank.com/ https://www.paypal.com/uk/signin https://www.iweb-sharedealing.co.uk/share-dealing-home.asp https://banking.ing-diba.de/app/login?x=fhJhVuIPNgA-acLQ-7Kil-_bvaPe5yqp1JHEJumGQGdEwk8PCHhwPEdz_YEgThiJs https://web.bitpanda.com/ https://www.myetherwallet.com/ https://portal.hydrominer.org/login https://www.switch.natwest.com/SVRWeb/nwb/faces/outage.jsp?param=downtime https://www.zoopla.co.uk/property/6-craglands-grove/chesterfield/s40-4xt/20236647 https://secure.splitwise.com/#/dashboard
+open -a "Google Chrome" https://www.xe.com/ https://docs.google.com/spreadsheets/d/1OAv2e9RKbNp-xs5QuEgoE9eVmoD0TDCBbQpQJpA0YOM/edit#gid=776125324 https://app.n26.com/login#/welcome https://www.lloydsbank.com/ https://www.paypal.com/uk/signin https://www.iweb-sharedealing.co.uk/share-dealing-home.asp https://banking.ing-diba.de/app/login?x=fhJhVuIPNgA-acLQ-7Kil-_bvaPe5yqp1JHEJumGQGdEwk8PCHhwPEdz_YEgThiJs https://web.bitpanda.com/ https://www.myetherwallet.com/ https://portal.hydrominer.org/login https://www.switch.natwest.com/SVRWeb/nwb/faces/outage.jsp?param=downtime https://www.zoopla.co.uk/property/6-craglands-grove/chesterfield/s40-4xt/20236647 https://secure.splitwise.com/#/dashboard
+
+
+osascript \
+  -e 'on run(theUrls)' \
+  -e '  tell app id "com.google.chrome" to tell make new window' \
+  -e '    repeat with theUrl in theUrls' \
+  -e '      set newTab to make new tab ¬' \
+  -e '        with properties { url: theUrl }' \
+  -e '    end repeat' \
+  -e '    tell tab 1 to close' \
+  -e '  end tell' \
+  -e 'end run' \
+  https://www.xe.com/ https://docs.google.com/spreadsheets/d/1OAv2e9RKbNp-xs5QuEgoE9eVmoD0TDCBbQpQJpA0YOM/edit#gid=776125324 https://app.n26.com/login#/welcome https://www.lloydsbank.com/ https://www.paypal.com/uk/signin https://www.iweb-sharedealing.co.uk/share-dealing-home.asp https://banking.ing-diba.de/app/login?x=fhJhVuIPNgA-acLQ-7Kil-_bvaPe5yqp1JHEJumGQGdEwk8PCHhwPEdz_YEgThiJs https://web.bitpanda.com/ https://www.myetherwallet.com/ https://portal.hydrominer.org/login https://www.switch.natwest.com/SVRWeb/nwb/faces/outage.jsp?param=downtime https://www.zoopla.co.uk/property/6-craglands-grove/chesterfield/s40-4xt/20236647 https://secure.splitwise.com/#/dashboard

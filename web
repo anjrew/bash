@@ -38,16 +38,19 @@ function show-help {
     echo  "Functions";
     echo "------------------------------------------------------------------------"
     echo  " - mkpg";
-    echo  "   creates a directory file for a webpage with html,css and js files";
+    echo  "  Creates a directory file for a webpage with html,css and js files";
     echo ""
     echo  " - mkfls";
-    echo  "   creates html, css and js files within the current directory";
+    echo  "   Creates html, css and js files within the current directory";
     echo ""
     echo  " - deploy";
     echo  "   Adds commits and pushs to the remote origin";
     echo ""
     echo  " - edit";
-    echo  "   opens the web bash file to edit it";
+    echo  "   Opens the web bash file to edit it";
+    echo ""
+    echo  " - mkserv";
+    echo  "   Makes a server file";
 }
 
 function git-deploy {
@@ -63,9 +66,14 @@ function edit-file {
 }
 
 function query {
-    echo "Options: mkpg ,mkfls ,help ,deploy ,edit ,n";
+    echo "Options: mkpg ,mkfls ,help ,deploy ,edit , n, mkserv";
     read -r -p 'Command choice: ' choice
     web $choice
+}
+
+function create-server {
+    CURRENTPATH="$(pwd)";
+    cp "$BASHPATH/index.js" "$CURRENTPATH/index.js"
 }
 
 if [[ $1 = mkpg ]]
@@ -83,6 +91,9 @@ then
 elif [[ $1 = edit ]]
 then
     edit-file
+elif [[ $1 = mkserv ]]
+then 
+    create-server
 elif [[ $1 = n ]]
 then 
     echo "Left without command"
