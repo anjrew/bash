@@ -5,18 +5,28 @@ function create-page {
 
     read -r -p 'HandleBars ? y/n :' handleBars
 
+    read -r -p 'Express ? y/n :' express
+
     read -r -p 'Page name: ' pagename
     PAGEDIRECTORY="$(pwd)/$pagename"
 
     mkdir "$PAGEDIRECTORY"
     cd "$PAGEDIRECTORY"
 
-    if [[ $handleBars = "y" ]]
+    if [[ $handleBars = "y" && $express = "y" ]]
+    then
+        create--express-handlebars-page
+    elif [[ $handleBars = "y" ]]
     then 
         create-handlebars-page
     else
         create-files
     fi
+}
+
+function create--express-handlebars-page {
+    CURRENTPATH="$(pwd)";
+    cp -a "$BASHPATH/express-sql-handlebars/." "$CURRENTPATH/"
 }
 
 function create-files {
